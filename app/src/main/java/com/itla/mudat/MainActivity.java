@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view){
 //                Toast message = Toast.makeText(MainActivity.this,"Hi, I'm Executing " + MainActivity.this.name.getText(), Toast.LENGTH_SHORT);
 //                message.show();
-                Intent viewer = new Intent(MainActivity.this,ViewerActivity.class);
+                Intent viewer = new Intent(MainActivity.this,UserRegister.class);
                 Bundle params = new Bundle();
                 params.putString("value", MainActivity.this.name.getText().toString() );
                 viewer.putExtras(params);
