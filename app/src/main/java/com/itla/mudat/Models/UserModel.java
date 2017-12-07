@@ -41,7 +41,11 @@ public class UserModel {
         cv.put("user_password", usr.getPassword());
         cv.put("user_status",1);
 
-        SqlDb.insert("user", null, cv);
+        if ( usr.getId() > 0 ) {
+            SqlDb.update("user", cv, "user_id =? ", new String[] {String.valueOf(usr.getId())});
+        } else {
+            SqlDb.insert("user", null, cv);
+        }
 
         SqlDb.close();
     }
