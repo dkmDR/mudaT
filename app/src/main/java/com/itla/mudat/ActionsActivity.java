@@ -39,5 +39,14 @@ public class ActionsActivity extends AppCompatActivity {
             }
         });
 
+        btncategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent viewer = new Intent(ActionsActivity.this, CategoryListActivity.class);
+
+                startActivity(viewer);
+            }
+        });
+
     }
 }

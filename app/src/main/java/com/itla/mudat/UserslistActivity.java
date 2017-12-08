@@ -17,6 +17,7 @@ import java.util.List;
 public class UserslistActivity extends AppCompatActivity {
 
     Button btnAdd;
+    Button btnReturn;
     ListView userList;
 
     @Override
@@ -25,6 +26,7 @@ public class UserslistActivity extends AppCompatActivity {
         setContentView(R.layout.activity_userslist);
 
         btnAdd = (Button) findViewById(R.id.btnAdd);
+        btnReturn = (Button) findViewById(R.id.returnActionFromCustomer);
         userList = (ListView) findViewById(R.id.userList);
 
         this.fillListView();
@@ -59,6 +61,15 @@ public class UserslistActivity extends AppCompatActivity {
                 Intent viewer = new Intent(UserslistActivity.this, UserRegister.class);
                 User us = (User) userList.getItemAtPosition(i);
                 viewer.putExtra("user", us);
+                startActivity(viewer);
+            }
+        });
+
+        btnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent viewer = new Intent(UserslistActivity.this, ActionsActivity.class);
+
                 startActivity(viewer);
             }
         });

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.itla.mudat.CategoryRegisterActivity">
+
+    <RelativeLayout
+        android:layout_width="369dp"
+        android:layout_height="200dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="73dp">
+
+        <EditText
+            android:id="@+id/categoryName"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Write your category"
+            tools:layout_editor_absoluteX="17dp"
+            tools:layout_editor_absoluteY="197dp"
+            />
+
+        <Button
+            android:id="@+id/btnCreateCategory"
+            android:layout_width="353dp"
+            android:layout_height="wrap_content"
+            android:text="Create"
+            android:layout_below="@+id/categoryName"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="159dp" />
+
+        <Button
+            android:id="@+id/showCategoryList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="24dp"
+            android:layout_below="@+id/btnCreateCategory"
+            android:text="show" />
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -9,11 +9,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".ViewerActivity" />
         <activity android:name=".UserRegister" />
@@ -25,19 +27,26 @@
             </intent-filter>
         </activity>
         <activity android:name=".UserslistActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".BannersActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
+        <activity android:name=".BannerListActivity" />
+        <activity android:name=".CategoryListActivity" />
+        <activity android:name=".CategoryRegisterActivity"></activity>
     </application>
 
 </manifest>

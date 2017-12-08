@@ -4,28 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.itla.mudat.UserslistActivity">
+    tools:context="com.itla.mudat.CategoryListActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <Button
-            android:id="@+id/returnActionFromCustomer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Return" />
-
-        <Button
-            android:id="@+id/btnAdd"
+            android:id="@+id/returnHomeFromCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/returnActionFromCustomer"
-            android:layout_marginTop="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="17dp"
             android:layout_weight="1"
-            android:text="Add" />
+            android:text="return" />
+
+        <Button
+            android:id="@+id/add_new_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="71dp"
+            android:layout_weight="1"
+            android:text="add"
+            tools:layout_editor_absoluteX="12dp"
+            tools:layout_editor_absoluteY="59dp" />
 
     </RelativeLayout>
 
@@ -34,12 +39,13 @@
         android:layout_height="wrap_content">
 
         <ListView
-            android:id="@+id/userList"
+            android:id="@+id/category_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="148dp" />
+            android:layout_marginTop="138dp" />
+
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

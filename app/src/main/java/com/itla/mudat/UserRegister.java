@@ -36,9 +36,9 @@ public class UserRegister extends AppCompatActivity {
 
         Bundle params = getIntent().getExtras();
 
-        if (params != null && params.containsKey("user")) {
-            this.users = (User) params.getSerializable("user");
-        }
+//        if (params != null && params.containsKey("user")) {
+//            this.users = (User) params.getSerializable("user");
+//        }
 
         this.name = (EditText) findViewById(R.id.name);
         this.id = (EditText) findViewById(R.id.id);
@@ -49,14 +49,22 @@ public class UserRegister extends AppCompatActivity {
         this.btnRegister = (Button) findViewById(R.id.register);
         this.btnShowMe = (Button) findViewById(R.id.showme);
 
+        if (params != null && params.containsKey("user")) {
+            this.fillFields(params);
+        }
+
         this.usermodel = new UserModel(this);
 
         this.btnRegister.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
 
-                if ( UserRegister.this.users == null )
+                String msg = "The User was Updated";
+
+                if ( UserRegister.this.users == null ) {
                     UserRegister.this.users = new User();
+                    msg = "The user was created";
+                }
 
                 UserRegister.this.users.setName(UserRegister.this.name.getText().toString());
                 UserRegister.this.users.setEmail(UserRegister.this.email.getText().toString());
@@ -70,7 +78,7 @@ public class UserRegister extends AppCompatActivity {
 
                 UserRegister.this.usermodel.create(UserRegister.this.users);
 
-                Toast message = Toast.makeText(UserRegister.this,"The user was created", Toast.LENGTH_SHORT);
+                Toast message = Toast.makeText(UserRegister.this,msg.toString(), Toast.LENGTH_SHORT);
                 message.show();
 
             }
@@ -94,9 +102,12 @@ public class UserRegister extends AppCompatActivity {
 
     public void fillFields( Bundle params ){
 
-        if (params != null && params.containsKey("user")) {
-            this.users = (User) params.getSerializable("user");
-        }
+        this.users = (User) params.getSerializable("user");
+
+        this.name.setText(this.users.getName().toString());
+//        this.id.setText(this.users.getIdt().toString());
+        this.email.setText(this.users.getEmail().toString());
+        this.phone.setText(this.users.getPhone().toString());
 
     }
 }
