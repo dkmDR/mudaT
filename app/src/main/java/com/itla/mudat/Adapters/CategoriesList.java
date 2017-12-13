@@ -22,10 +22,12 @@ public class CategoriesList extends BaseAdapter {
 
     List<Category> categories;
     Activity activity;
+    Integer resource;
 
-    public CategoriesList(List<Category> categories, Activity activity) {
+    public CategoriesList(List<Category> categories, Activity activity, Integer resource) {
         this.categories = categories;
         this.activity = activity;
+        this.resource = resource;
     }
 
     @Override
@@ -46,14 +48,30 @@ public class CategoriesList extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
+        TextView na = null;
+
         if ( view == null ) {
             LayoutInflater inflater = activity.getLayoutInflater();
-            view = inflater.inflate(R.layout.category_list_row, null);
+            switch (this.resource) {
+                case 1:
+                    view = inflater.inflate(R.layout.category_list_row, null);
+                    break;
+                case 2:
+                    view = inflater.inflate(R.layout.category_resource_radio, null);
+                    break;
+            }
         }
 
-        TextView na = (TextView) view.findViewById(R.id.category_name_in_row);
-
         Category c = categories.get(i);
+
+        switch (this.resource) {
+            case 1:
+                na = (TextView) view.findViewById(R.id.category_name_in_row);
+                break;
+            case 2:
+                na = (TextView) view.findViewById(R.id.category_name_from_radio);
+                break;
+        }
 
         na.setText(c.getName());
 

@@ -35,7 +35,7 @@ public class CategoryRegisterActivity extends AppCompatActivity {
         }
 
         cm = new CategoryModel(this);
-        category = new Category();
+//        category = new Category();
 
         this.clickEvents();
     }
@@ -57,11 +57,18 @@ public class CategoryRegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
 
+                String msg = "The category was updated";
+
+                if ( CategoryRegisterActivity.this.category == null ) {
+                    CategoryRegisterActivity.this.category = new Category();
+                    msg = "The category was created";
+                }
+
                 CategoryRegisterActivity.this.category.setName(categoryName.getText().toString());
 
                 CategoryRegisterActivity.this.cm.create(CategoryRegisterActivity.this.category);
 
-                Toast toast = Toast.makeText(CategoryRegisterActivity.this, "category was created", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(CategoryRegisterActivity.this, msg, Toast.LENGTH_SHORT);
 
                 toast.show();
             }

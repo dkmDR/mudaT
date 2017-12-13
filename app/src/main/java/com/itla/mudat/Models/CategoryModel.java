@@ -34,7 +34,7 @@ public class CategoryModel {
         cv.put("category_name", category.getName());
 
         if ( category.getId() > 0 ) {
-            SqlDb.update("categorie", cv, "user_id =? ", new String[] {String.valueOf(category.getId())});
+            SqlDb.update("categorie", cv, "category_id =? ", new String[] {String.valueOf(category.getId())});
         } else {
             SqlDb.insert("categorie", null, cv);
         }

@@ -42,7 +42,7 @@ public class CategoryListActivity extends AppCompatActivity {
 
         List<Category> categoryList = categoryModel.search();
 
-        categorylistview.setAdapter(new CategoriesList(categoryList, this));
+        categorylistview.setAdapter(new CategoriesList(categoryList, this, 1));
 
         this.clickEvents();
 

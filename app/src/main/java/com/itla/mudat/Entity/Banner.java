@@ -16,4 +16,76 @@ public class Banner {
     private String title;
     private int location;
     private String details;
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public void setCondition(int condition) {
+        this.condition = condition;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setLocation(int location) {
+        this.location = location;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public int getCondition() {
+        return condition;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public int getLocation() {
+        return location;
+    }
+
+    public String getDetails() {
+        return details;
+    }
 }

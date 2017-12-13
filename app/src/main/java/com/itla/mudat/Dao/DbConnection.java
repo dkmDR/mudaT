@@ -39,5 +39,6 @@ public class DbConnection extends SQLiteOpenHelper {
     private void executeSQL(SQLiteDatabase db) {
         db.execSQL(SqlHelperSchema.USER_TABLE);
         db.execSQL(SqlHelperSchema.CATEGORY_TABLE);
+        db.execSQL(SqlHelperSchema.BANNER_TABLE);
     }
 }

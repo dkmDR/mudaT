@@ -48,5 +48,14 @@ public class ActionsActivity extends AppCompatActivity {
             }
         });
 
+        btnbanner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent viewer = new Intent(ActionsActivity.this, BannerListActivity.class);
+
+                startActivity(viewer);
+            }
+        });
+
     }
 }
