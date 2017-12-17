@@ -39,6 +39,8 @@ public class BannersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_banners);
 
+        Bundle params = getIntent().getExtras();
+
 //        categorylistview = findViewById(R.id.banner_category_list);
         btnmybanners = findViewById(R.id.my_banners);
         btncreate = findViewById(R.id.banner_save);
@@ -48,9 +50,26 @@ public class BannersActivity extends AppCompatActivity {
         bannerTitle = findViewById(R.id.banner_title);
         bannerDetail = findViewById(R.id.banner_details);
 
+        if (params != null && params.containsKey("advert")) {
+            this.fillFields(params);
+        }
+
         bannerModel = new BannerModel(this);
 
         this.fillCategory();
+    }
+
+    private void fillFields(Bundle params) {
+
+        this.banner = (Banner) params.getSerializable("advert");
+
+        bannerTitle.setText(this.banner.getTitle().toString());
+        bannerPrice.setText( String.valueOf( this.banner.getPrice() ) );
+        bannerDetail.setText(this.banner.getDetails().toString());
+
+//        int spinerPosition = spnCategories.getPosition this.banner.getCategory().getName();
+//        spnCategories.set
+
     }
 
     private void fillCategory() {
@@ -72,7 +91,7 @@ public class BannersActivity extends AppCompatActivity {
         btnmybanners.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent viewer = new Intent(BannersActivity.this, BannerListActivity.class);
+                Intent viewer = new Intent(BannersActivity.this, MyBannersActivity.class);
 
                 startActivity(viewer);
             }

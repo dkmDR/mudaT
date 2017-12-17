@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -13,20 +14,18 @@ import com.itla.mudat.Models.BannerModel;
 
 import java.util.List;
 
-public class BannerListActivity extends AppCompatActivity {
+public class MyBannersActivity extends AppCompatActivity {
 
-    Button btnBannerRegister;
     Button btnReturnAction;
     ListView bannerlist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_banner_list);
+        setContentView(R.layout.activity_my_banners);
 
-        btnBannerRegister = (Button) findViewById(R.id.add_new_banner);
-        btnReturnAction = (Button) findViewById(R.id.banner_to_action);
-        bannerlist = (ListView) findViewById(R.id.banner_list_view);
+        btnReturnAction = (Button) findViewById(R.id.go_to_advert);
+        bannerlist = (ListView) findViewById(R.id.my_advert_list);
 
         this.fillListView();
     }
@@ -35,8 +34,7 @@ public class BannerListActivity extends AppCompatActivity {
 
         BannerModel bannerModel = new BannerModel(this);
         List<Banner> bannerList = bannerModel.search();
-        System.out.println(bannerList.toString());
-        bannerlist.setAdapter(new BannerList(bannerList, this, 1));
+        bannerlist.setAdapter(new BannerList(bannerList, this, 2));
 
         this.clickEvents();
 
@@ -44,20 +42,21 @@ public class BannerListActivity extends AppCompatActivity {
 
     private void clickEvents(){
 
-        btnBannerRegister.setOnClickListener(new View.OnClickListener() {
+        btnReturnAction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent viewer = new Intent(BannerListActivity.this, BannersActivity.class);
+                Intent viewer = new Intent(MyBannersActivity.this, BannerListActivity.class);
 
                 startActivity(viewer);
             }
         });
 
-        btnReturnAction.setOnClickListener(new View.OnClickListener() {
+        bannerlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent viewer = new Intent(BannerListActivity.this, ActionsActivity.class);
-
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent viewer = new Intent(MyBannersActivity.this, BannersActivity.class);
+                Banner catt = (Banner) bannerlist.getItemAtPosition(i);
+                viewer.putExtra("advert", catt);
                 startActivity(viewer);
             }
         });

@@ -1,12 +1,13 @@
 package com.itla.mudat.Entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Miguel Peralta on 11/18/2017.
  */
 
-public class Banner {
+public class Banner implements Serializable {
     private int id;
     private Category category;
     private User user;
@@ -87,5 +88,20 @@ public class Banner {
 
     public String getDetails() {
         return details;
+    }
+
+    @Override
+    public String toString() {
+        return "Banner{" +
+                "id=" + id +
+                ", category=" + category +
+                ", user=" + user +
+                ", date=" + date +
+                ", condition=" + condition +
+                ", price=" + price +
+                ", title='" + title + '\'' +
+                ", location=" + location +
+                ", details='" + details + '\'' +
+                '}';
     }
 }

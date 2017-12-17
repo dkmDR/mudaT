@@ -1,6 +1,7 @@
 package com.itla.mudat.Adapters;
 
 import android.app.Activity;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,10 +21,12 @@ public class BannerList extends BaseAdapter {
 
     List<Banner> banner;
     Activity context;
+    int vista;
 
-    public BannerList(List<Banner> banner, Activity context) {
+    public BannerList(List<Banner> banner, Activity context, int vista) {
         this.banner = banner;
         this.context = context;
+        this.vista = vista;
     }
 
     @Override
@@ -46,7 +49,10 @@ public class BannerList extends BaseAdapter {
 
         if ( view == null ) {
             LayoutInflater inflater = context.getLayoutInflater();
-            view = inflater.inflate(R.layout.row_user_list, null);
+            if ( this.vista == 1)
+                view = inflater.inflate(R.layout.banner_row, null);
+            else
+                view = inflater.inflate(R.layout.my_banners_row, null);
         }
 
         TextView tb = (TextView) view.findViewById(R.id.title_banner);
@@ -56,9 +62,17 @@ public class BannerList extends BaseAdapter {
         Banner b = banner.get(i);
 
         tb.setText(b.getTitle());
+        pb.setText( String.valueOf( b.getPrice() ));
+        db.setText(b.getDetails());
 //        pb.setText(  b.getPrice() );
 
         return view;
 
+    }
+
+    @Nullable
+    @Override
+    public CharSequence[] getAutofillOptions() {
+        return new CharSequence[0];
     }
 }

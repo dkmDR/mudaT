@@ -46,7 +46,8 @@
         </activity>
         <activity android:name=".BannerListActivity" />
         <activity android:name=".CategoryListActivity" />
-        <activity android:name=".CategoryRegisterActivity"></activity>
+        <activity android:name=".CategoryRegisterActivity" />
+        <activity android:name=".MyBannersActivity"></activity>
     </application>
 
 </manifest>
